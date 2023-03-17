@@ -75,15 +75,21 @@ namespace HexGameUiForm
                         if (msgDetail[2] == "player1")
                         {
                             MyPlayerSeqNo = 1;
-                            label_hint.Text = "系統指定為藍方\r\n由左連到右獲勝";
-                            label_hint.BackColor = Color.Blue;
+                            label_hint.BeginInvoke(new Action(() =>
+                            {
+                                label_hint.Text = "系統指定為藍方\r\n由左連到右獲勝";
+                                label_hint.BackColor = Color.Blue;
+                            }));
                         }
                         else
                         {
                             MyPlayerSeqNo = 2;
-                            label_hint.Text = "系統指定為紅方\r\n由上連到下獲勝";
-                            label_hint.BackColor = Color.Red;
 
+                            label_hint.BeginInvoke(new Action(() =>
+                            {
+                                label_hint.Text = "系統指定為紅方\r\n由上連到下獲勝";
+                                label_hint.BackColor = Color.Red;
+                            }));
                         }
                         MessageBox.Show($"{playerName},{msgDetail[1]}");
                         break;
